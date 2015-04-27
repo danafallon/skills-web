@@ -195,23 +195,20 @@
 
 <script>
 
-function reverseString() {
-  var msg = "Porcupines are cute";
+  function reverseString() {
+    var msg = "Porcupines are cute";
 
-  // do some stuff here to reverse that string into a new variable
-  var newMsg = "";
-  for (var i = 0; i < msg.length; i++) {
-    newMsg = msg[i].concat(newMsg);
+    var newMsg = "";
+    for (var i = 0; i < msg.length; i++) {
+      newMsg = msg[i].concat(newMsg);
+    }
+
+    alert(newMsg);
   }
 
-  alert(newMsg);
-}
+  var button = document.getElementById('reverse-string-button');
+  button.addEventListener('click', reverseString);
 
-// Here's a stub of event stuff you could use
-
-
-var button = document.getElementById('reverse-string-button');
-button.addEventListener('click', reverseString);
 </script>
 
 
@@ -234,8 +231,19 @@ button.addEventListener('click', reverseString);
   <input type="button" class="tricky-to-find" value="Pop-Up Please!">
 </fieldset>
 
+<script src="https://code.jquery.com/jquery.js"></script>
+
 <script>
-  // code here for above problem
+
+  var button_array = $('.tricky-to-find');
+  var button = button_array[0];
+
+  function makeAlert() {
+    alert("You clicked it!");
+  }
+
+  $(button).on('click', makeAlert);
+
 </script>
 
 <div class="hint">
@@ -262,7 +270,13 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+  function changeToDog() {
+    $('#kittenz-rule').attr('src', 'http://cdn.sheknows.com/articles/2013/04/Puppy_2.jpg');
+  }
+
+  $('#kittenz-rule').on('dblclick', changeToDog)
+  
+
 </script>
 
 <div class="hint">
@@ -295,7 +309,13 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+  function makePorcupine() {
+    setTimeout(function () { $('#cute-porcupine-image').fadeIn(2600); }, 1000);
+
+  }
+
+  $('#make-a-porcupine').on('click', makePorcupine);
+
 </script>
 
 <div class="hint">
@@ -327,7 +347,13 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+  function agree(evt) {
+    evt.preventDefault();
+    alert("I like ".concat($('#favorite-food-input').val(), ", too."));
+  }
+
+  $('#agreeable-form').on('submit', agree);
+
 </script>
 
 <div class="hint">
@@ -373,7 +399,23 @@ button.addEventListener('click', reverseString);
 </fieldset>
 
 <script>
-  // put your code here
+  function guessingGame() {
+    var number = Math.floor((Math.random() * 100) + 1);
+    var guess = prompt("Guess a number between 1 and 100: ");
+
+    while (guess != number) {
+      if (guess > number) {
+        alert("Your guess is too high.");
+      }
+      else if (guess < number) {
+        alert("Your guess is too low.");
+      }
+      prompt("Guess again: ")
+    }
+  }
+
+  $('#play-guessing-game').on('click', guessingGame);
+
 </script>
 
 <div class="hint">

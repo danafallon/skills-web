@@ -410,7 +410,11 @@
       else if (guess < number) {
         alert("Your guess is too low.");
       }
-      prompt("Guess again: ")
+      guess = prompt("Guess again: ");
+    }
+
+    if (guess == number) {
+      alert("Congratulations! You guessed the number.");
     }
   }
 
